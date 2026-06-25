@@ -3287,12 +3287,13 @@ const rowData = {
 };
 
 // --- BƯỚC 3: GỬI SANG GOOGLE SHEET ---
-await fetch(scriptURL, {
+const exportResponse = await fetch(scriptURL, {
     method: 'POST',
-    mode: 'no-cors',
     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
     body: JSON.stringify(rowData)
 });
+const exportResult = await exportResponse.json();
+console.log("Export result:", exportResult);
 
 // --- BƯỚC 4: CẬP NHẬT FLAG isExported = TRUE ---
 if (idIn) await fetch(DATABASE_API_URL, { method: 'POST', body: JSON.stringify({ action: 'UPDATE', id: idIn, isExported: true }) });
