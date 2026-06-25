@@ -1739,7 +1739,7 @@ const VNAUrl = `${baseUrl}?gid=670388147&single=true&output=csv`; // Dữ liệu
 const payrollUrl = `${baseUrl}?gid=1695509087&single=true&output=csv`;
 // URL WEB APP CỦA FILE GOOGLE SHEET MỚI (Dán URL lấy ở Bước 1 vào đây)
 const autoConfirmWebAppUrl =
-'https://script.google.com/a/macros/shopee.com/s/AKfycbzsX8X2g_O5oJL0aQxRSUuG71GpHekpr6eU_yZ3r1c17NwuBr5pZsbMm04dWlHMNvzr/exec';
+'https://script.google.com/macros/s/AKfycbx5CdZs4NvGYh6BTFzmpcMuDqogm2Xv-LdZ4D_X3g4GtpiEQa2VddiVXk1w8fnKNEg2mg/exec';
 // Hàm ĐỘC LẬP chỉ dùng cho nút Confirm
 async function pushAutoConfirmToNewSheet(team, warehouse, vendor, code, userID, name, scanType) {
 if (!autoConfirmWebAppUrl || autoConfirmWebAppUrl === 'DÁN_LINK_WEB_APP_MỚI_VÀO_ĐÂY') return;
@@ -3231,7 +3231,7 @@ setTimeout(() => {
 async function actuallyExportRecord(row, btn, icon) {
 const idIn = row.getAttribute('data-id-in');
 const idOut = row.getAttribute('data-id-out');
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxxtX0TtcKx1MSSaozPBkgLKAzaSh311UWcdlroPc7h1Uo-ReOEzKjptstqrw-WpSUlZA/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbx5CdZs4NvGYh6BTFzmpcMuDqogm2Xv-LdZ4D_X3g4GtpiEQa2VddiVXk1w8fnKNEg2mg/exec';
 
 // --- BƯỚC 1: DOUBLE CHECK DATABASE ---
 const dbResponse = await fetch(DATABASE_API_URL);
