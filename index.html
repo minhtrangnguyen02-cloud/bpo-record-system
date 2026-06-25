@@ -3233,19 +3233,27 @@ const idIn = row.getAttribute('data-id-in');
 const idOut = row.getAttribute('data-id-out');
 const scriptURL = 'https://script.google.com/macros/s/AKfycbx5CdZs4NvGYh6BTFzmpcMuDqogm2Xv-LdZ4D_X3g4GtpiEQa2VddiVXk1w8fnKNEg2mg/exec';
 
+console.log("STEP 1: idIn=", idIn, "idOut=", idOut);
+
 // --- BƯỚC 1: DOUBLE CHECK DATABASE ---
 const dbResponse = await fetch(DATABASE_API_URL);
 const snapshot = await dbResponse.json();
 
+console.log("STEP 2: snapshot length=", snapshot.length);
+
 const isAlreadyExported = snapshot.some(item => 
     ((idIn && item.id === idIn) || (idOut && item.id === idOut)) && item.isExported === true
 );
+
+console.log("STEP 3: isAlreadyExported=", isAlreadyExported);
 
 if (isAlreadyExported) {
     alert("⚠️ This record was just exported by another user. Refreshing...");
     loadHistoryFromDatabase();
     return;
 }
+
+console.log("STEP 4: Sending to sheet...");
 
 // --- BƯỚC 2: CHUẨN BỊ DỮ LIỆU ---
 const rawTime = row.cells[6].getAttribute('data-raw');
